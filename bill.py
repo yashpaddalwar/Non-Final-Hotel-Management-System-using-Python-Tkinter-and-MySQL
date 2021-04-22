@@ -48,7 +48,7 @@ class GenerateBill:
 
 
         #    """""""""""""""""""""""Bill Button""""""""""""""""""""""""
-        buttonBill = Button(btn_frame,text="Generate Bill",command=self.Fetch_Details_customer,font=("times new roman",10,"bold"),bg="#bd205c",fg="white",width=10,cursor="hand2")
+        buttonBill = Button(btn_frame,text="Generate Bill",command=self.Fetch_Details_customer,font=("times new roman",13,"bold"),bg="#bd205c",fg="white",width=10,cursor="hand2")
         buttonBill.grid(row=0,column=2,sticky=W,padx=6)
 
         # Cust_Room
@@ -58,10 +58,6 @@ class GenerateBill:
         entry_Room = ttk.Entry(btn_frame,textvariable=self.var_roomavailable,width=20,font=("times new roman",10,"bold"))
         entry_Room.grid(row=1,column=1,sticky=W,padx=6)
 
-
-        #    """""""""""""""""""""""Bill Button""""""""""""""""""""""""
-        buttonBillroom = Button(btn_frame,text="Generate Bill",command=self.Fetch_Details_room,font=("times new roman",10,"bold"),bg="#bd205c",fg="white",width=10,cursor="hand2")
-        buttonBillroom.grid(row=1,column=2,sticky=W,padx=6)
 
         #    """""""""""""""""""""""Print Bill Frame""""""""""""""""""""""""
 
@@ -163,6 +159,8 @@ class GenerateBill:
                 lbl5 = Label(bill_frame,text=row,bg="#1812c9",fg="white",font=("times new roman",12,"bold"))
                 lbl5.place(x=90,y=120)
 
+        self.Fetch_Details_room()
+        
                 
 
 
@@ -298,6 +296,7 @@ class GenerateBill:
     def Imagess(self):
         im = grab(bbox=(10,125,450,620))
         im.show()
+        im.save(r"D:/Python MiniProject/Bills/"+str(self.var_contact.get())+".pdf",'PDF')
 
 
 
